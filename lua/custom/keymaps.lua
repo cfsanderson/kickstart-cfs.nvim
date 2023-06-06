@@ -1,10 +1,14 @@
+-------------------------------------------------------------------------------
+-- Keymaps --
+-------------------------------------------------------------------------------
+
 -- Shorten function name
 local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
 
 -- relative numbers in netrw
-vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+-- vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 
 -- set <leader>e to open netrw
 vim.keymap.set('n', '<leader>e', ':E<cr>', { silent = false })
@@ -21,7 +25,9 @@ vim.g.mapleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
+-------------------------------------------------------------------------------
 -- Normal --
+-------------------------------------------------------------------------------
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -47,16 +53,33 @@ keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 -- Better paste
 keymap("v", "p", '"_dP', opts)
 
--- Insert --
--- Press jk fast to enter
--- keymap("i", "jk", "<ESC>", opts)
+-- use F2 to insert current date in 'Day DD Mon YYYY' format
+-- keymap("n", "<F2>", 'i<C-R>=strftime("%a %d %b %Y")<CR><ESC>', opts)
 
+-- use F3 to insert current time
+-- keymap("n", "<F3>", 'i<C-R>=strftime("%H:%M:%S")<CR><ESC>', opts)
+
+-------------------------------------------------------------------------------
+-- Insert --
+-------------------------------------------------------------------------------
+
+-- use F2 to insert current date in 'Day DD Mon YYYY' format
+keymap("i", "<F2>", '<C-R>=strftime("%a %d %b %Y")<CR>', opts)
+
+-- use F3 to insert current time
+keymap("i", "<F3>", '<C-R>=strftime("%H:%M:%S")<CR>', opts)
+
+-------------------------------------------------------------------------------
 -- Visual --
+-------------------------------------------------------------------------------
+
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
+-------------------------------------------------------------------------------
 -- Plugins --
+-------------------------------------------------------------------------------
 
 -- NvimTree
 keymap("n", "<leader>n", ":NvimTreeToggle<CR>", opts)
