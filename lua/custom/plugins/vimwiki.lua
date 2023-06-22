@@ -1,5 +1,12 @@
 vim.g.vimwiki_list = {
-	{ path = '$HOME/Projects/.wiki', syntax = 'markdown', ext = '.md', links_space_char = '_' } }
+	{
+		path = '$HOME/Projects/.wiki',
+		syntax = 'markdown',
+		ext = '.md',
+		links_space_char = '_',
+		custom_wiki2html = 'vimwiki_markdown',
+		html_filename_parameterization = 1
+	} }
 
 vim.g.taskwiki_markup_syntax = 'markdown'
 vim.g.markdown_folding = 1
