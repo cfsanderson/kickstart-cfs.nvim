@@ -11,11 +11,11 @@ local opts = { silent = true }
 -- vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 
 -- set <leader>e to open netrw
-vim.keymap.set('n', '<leader>e', ':E<cr>', { silent = false })
+-- vim.keymap.set('n', '<leader>e', ':E<cr>', { silent = false })
 
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
+-- keymap("", "<Space>", "<Nop>", opts)
+-- vim.g.mapleader = " "
 
 -- Modes
 --   normal_mode = "n",
