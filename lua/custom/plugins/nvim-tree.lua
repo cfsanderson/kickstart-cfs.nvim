@@ -18,25 +18,25 @@ return {
 			reload_on_bufenter = false,
 			respect_buf_cwd = false,
 			on_attach = "default",
-			remove_keymaps = false,
+			-- remove_keymaps = false,
 			select_prompts = false,
 			view = {
 				centralize_selection = false,
 				cursorline = true,
 				debounce_delay = 15,
 				width = 30,
-				hide_root_folder = false,
+				-- hide_root_folder = false,
 				side = "left",
 				preserve_window_proportions = false,
 				number = true,
 				relativenumber = true,
 				signcolumn = "yes",
-				mappings = {
-					custom_only = false,
-					list = {
-						-- user mappings go here
-					},
-				},
+				-- mappings = {
+				-- 	custom_only = false,
+				-- 	list = {
+				-- 		-- user mappings go here
+				-- 	},
+				-- },
 				float = {
 					enable = false,
 					quit_on_focus_loss = true,
