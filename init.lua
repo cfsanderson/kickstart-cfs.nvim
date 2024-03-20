@@ -92,6 +92,7 @@ vim.g.maplocalleader = ' '
 -- cfs - require my configs
 require 'custom.options'
 require 'custom.keymaps'
+require 'custom.plugins'
 
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
@@ -738,13 +739,23 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
-    'folke/tokyonight.nvim',
+    'cfsanderson/cfs-gruvbox-material',
     priority = 1000, -- make sure to load this before all the other start plugins
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'gruvbox-material'
+      vim.g.gruvbox_material_background = 'hard'
+      vim.g.gruvbox_material_pallette = 'material'
+      -- vim.cmd [[
+      --   let g:gruvbox_material_background = 'soft'
+      --   let g:gruvbox_material_enable_italic = 1
+      --   let g:gruvbox_material_disable_italic_comment = 0
+      --   let g:gruvbox_material_menu_selection_background = 'green'
+      --   let g:gruvbox_material_palette = 'mix'
+      --   let g:gruvbox_material_sign_column_background = 'none'
+      -- ]]
 
       -- You can configure highlights by doing something like
       vim.cmd.hi 'Comment gui=none'
