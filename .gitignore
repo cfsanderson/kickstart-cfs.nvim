@@ -4,4 +4,4 @@ test.sh
 nvim
 .netrwhist
 spell/
-lazy-lock.json
+./lazy-lock.json
