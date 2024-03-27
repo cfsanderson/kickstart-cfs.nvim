@@ -1,11 +1,15 @@
 vim.g.vimwiki_list = {
   {
-    path = '$HOME/Projects/.wiki',
+    path = '$HOME/Projects/wiki',
+    path_html = 'wiki_html_location',
     syntax = 'markdown',
     ext = '.md',
     links_space_char = '_',
-    custom_wiki2html = 'vimwiki_markdown',
-    html_filename_parameterization = 1,
+    -- https://gist.github.com/enpassant/0496e3db19e32e110edca03647c36541
+    custom_wiki2html = '~/Projects/wiki/wiki2html.sh',
+    -- original way below
+    -- custom_wiki2html = 'vimwiki_markdown',
+    -- html_filename_parameterization = 1
   },
 }
 
