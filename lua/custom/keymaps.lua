@@ -84,8 +84,11 @@ keymap('v', '>', '>gv', opts)
 -- NvimTree
 keymap('n', '<leader>n', ':NvimTreeToggle<CR>', opts)
 
--- ZenMode and MarkdownPreview
-keymap('n', '<leader>z', ':ZenMode | MarkdownPreview <CR>', opts)
+-- ZenMode
+keymap('n', '<leader>z', ':ZenMode <CR>', opts)
+
+-- MarkdownPreview
+keymap('n', '<leader>m', ':MarkdownPreview <CR>', opts)
 
 -- Git
 keymap('n', '<leader>gg', '<cmd>lua _LAZYGIT_TOGGLE()<CR>', opts)
