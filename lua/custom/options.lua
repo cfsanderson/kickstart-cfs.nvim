@@ -40,3 +40,10 @@ vim.g.showtabline = 2
 vim.g.sidescrolloff = 5
 vim.g.undodir = '~/.vim/undodir'
 vim.g.writebackup = false
+
+-- custom commands
+vim.api.nvim_create_user_command('CopyPathToClipboard', function()
+  local path = vim.fn.expand '%:p'
+  vim.fn.setreg('+', path)
+  print('Copied: ' .. path)
+end, {})
