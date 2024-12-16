@@ -35,8 +35,8 @@ return {
       --   prepend_note_id = true,
       -- },
       mapping = {
-        -- "Obsidian follow"
-        ['<leader>of'] = {
+        -- "Obsidian [f]ollow [l]ink"
+        ['<leader>fl'] = {
           action = function()
             return require('obsidian').util.gf_passthrough()
           end,
