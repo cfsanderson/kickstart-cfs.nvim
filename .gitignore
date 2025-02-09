@@ -5,3 +5,4 @@ nvim
 .netrwhist
 spell/
 ./lazy-lock.json
+pack/
