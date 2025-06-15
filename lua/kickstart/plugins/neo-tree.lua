@@ -5,9 +5,8 @@
 
 return {
   'nvim-neo-tree/neo-tree.nvim',
-  ft = 'netrw', -- load when netrw opens to replace it
-  cmd = 'Neotree', -- load when calling keymaps
-  version = '*',
+  branch = 'v3.x',
+  lazy = false, -- Load immediately
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
