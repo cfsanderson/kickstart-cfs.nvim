@@ -1,5 +1,7 @@
 # kickstart.nvim
 
+This is my fork of Kickstart.nvim and I `main`ly use the `main` branch to keep master clean for upstream changes.
+
 ## Introduction
 
 A starting point for Neovim that is:
