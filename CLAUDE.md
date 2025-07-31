@@ -33,6 +33,7 @@ Uses [lazy.nvim](https://github.com/folke/lazy.nvim) as the plugin manager:
 - **Treesitter**: Syntax highlighting and parsing
 - **Git Integration**: Gitsigns for git status in editor
 - **File Explorer**: Neo-tree (optional kickstart module)
+- **AI Integration**: Claude Code plugin (`:Claude`, `<leader>cc`) and Gemini plugin (`<leader>g`)
 
 ## Common Development Tasks
 
@@ -56,6 +57,13 @@ Uses [lazy.nvim](https://github.com/folke/lazy.nvim) as the plugin manager:
 - **Check LSP attachment**: `:LspInfo`
 - **View treesitter info**: `:TSInstallInfo`
 - **Inspect element**: `<leader>ti` (inspect under cursor)
+
+### AI Integration Commands
+- **Open Claude terminal**: `:Claude` or `<leader>cc`
+- **Copy file for Claude**: `:ClaudeFile` or `<leader>cf`
+- **Copy file with line numbers**: `:ClaudeDebug` or `<leader>cd`
+- **Copy selection for Claude**: `<leader>cs` (visual mode)
+- **Toggle Gemini chat**: `<leader>g`
 
 ## Customization Patterns
 
@@ -84,6 +92,10 @@ return {
 - Current theme: gruvbox-material (custom fork)
 - Theme config in `lua/custom/plugins/gruvbox-material.lua`
 - Statusline theme in `lua/custom/plugins/lualine.lua`
+
+### Navigation and Window Management
+- **Tmux-style navigation**: `<C-h/j/k/l>` for seamless pane switching (requires vim-tmux-navigator)
+- **Core telescope keymaps**: `<leader>sf` (files), `<leader>sg` (grep), `<leader>sh` (help), `<leader><leader>` (buffers)
 
 ## Dependencies and Requirements
 
