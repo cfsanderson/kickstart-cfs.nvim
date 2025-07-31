@@ -1,7 +1,5 @@
 -- Neo-tree is a Neovim plugin to browse the file system
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
--- TODO:
--- - [ ] close_if_last_window = true,
 
 return {
   'nvim-neo-tree/neo-tree.nvim',
@@ -23,6 +21,7 @@ return {
   end,
   config = function()
     require('neo-tree').setup {
+      close_if_last_window = true,
       filesystem = {
         hijack_netrw_behavior = 'open_current',
         window = {
