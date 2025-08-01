@@ -1,0 +1,21 @@
+return {
+  'nvim-telekasten/telekasten.nvim',
+  dependencies = {
+    'nvim-telescope/telescope.nvim',
+    'nvim-lua/plenary.nvim',
+  },
+  opts = {
+    home = vim.fn.expand("~/zettelkasten"), -- Put the name of your notes directory here
+  },
+  keys = {
+    { '<leader>z', '<cmd>Telekasten panel<cr>', desc = 'Open Telekasten panel' },
+    { '<leader>zf', '<cmd>Telekasten find_notes<cr>', desc = 'Find notes' },
+    { '<leader>zg', '<cmd>Telekasten search_notes<cr>', desc = 'Search notes' },
+    { '<leader>zd', '<cmd>Telekasten goto_today<cr>', desc = 'Go to today' },
+    { '<leader>zz', '<cmd>Telekasten follow_link<cr>', desc = 'Follow link' },
+    { '<leader>zn', '<cmd>Telekasten new_note<cr>', desc = 'New note' },
+    { '<leader>zc', '<cmd>Telekasten show_calendar<cr>', desc = 'Show calendar' },
+    { '<leader>zb', '<cmd>Telekasten show_backlinks<cr>', desc = 'Show backlinks' },
+    { '<leader>zI', '<cmd>Telekasten insert_img_link<cr>', desc = 'Insert image link' },
+  },
+}
