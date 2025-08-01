@@ -111,4 +111,4 @@ This configuration follows kickstart.nvim principles:
 - Encourage users to read and modify the configuration
 - Avoid overwhelming new users with too many features
 
-When modifying this configuration, maintain the educational approach and document any significant changes.
+When modifying this configuration, maintain the educational approach and document by offering to update the README.md with any significant changes.
