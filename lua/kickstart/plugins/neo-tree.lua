@@ -24,6 +24,11 @@ return {
       close_if_last_window = true,
       filesystem = {
         hijack_netrw_behavior = 'open_current',
+        filtered_items = {
+          visible = true, -- This is what you want: it's a boolean
+          hide_dotfiles = false,
+          hide_gitignored = false,
+        },
         window = {
           mappings = {
             ['\\'] = 'close_window',
