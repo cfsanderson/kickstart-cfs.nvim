@@ -5,7 +5,16 @@ return {
     'nvim-lua/plenary.nvim',
   },
   opts = {
-    home = vim.fn.expand("~/zettelkasten"), -- Put the name of your notes directory here
+    home = vim.fn.expand("~/Projects/wiki"), -- Your existing VimWiki directory
+    dailies = vim.fn.expand("~/Projects/wiki/diary"), -- Your diary folder
+    templates = vim.fn.expand("~/Projects/wiki/templates"), -- Templates (create if needed)
+    extension = ".md",
+    new_note_filename = "title",
+    follow_creates_nonexisting = true,
+    calendar_opts = {
+      weekdayheader = true,
+      calendar_monday = 1,
+    },
   },
   keys = {
     { '<leader>z', '<cmd>Telekasten panel<cr>', desc = 'Open Telekasten panel' },
