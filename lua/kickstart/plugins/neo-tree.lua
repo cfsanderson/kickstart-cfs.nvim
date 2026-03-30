@@ -1,6 +1,8 @@
 -- Neo-tree is a Neovim plugin to browse the file system
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
 
+---@module 'lazy'
+---@type LazySpec
 return {
   'nvim-neo-tree/neo-tree.nvim',
   branch = 'v3.x',
@@ -19,6 +21,8 @@ return {
     -- they also need to begin with something specified in `cmd`
     -- (for this plugin, :Neotree has all of them i think?)
   end,
+  ---@module 'neo-tree'
+  ---@type neotree.Config
   config = function()
     require('neo-tree').setup {
       close_if_last_window = true,

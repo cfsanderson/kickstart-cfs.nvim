@@ -5,4 +5,7 @@
 require('custom.options')
 require('custom.keymaps')
 
+---@module 'lazy'
+---@type LazySpec
+
 return {}
