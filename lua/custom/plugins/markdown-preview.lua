@@ -1,5 +1,5 @@
 -- https://github.com/iamcco/markdown-preview.nvim
--- NOTE: After first install, run :call mkdp#util#install() to build the plugin
+-- NOTE: Requires `npm install` build step; see PackChanged autocmd in init.lua
 vim.pack.add { 'https://github.com/iamcco/markdown-preview.nvim' }
 
 -- Use Neovim's job system to open the URL so the browser launch doesn't depend

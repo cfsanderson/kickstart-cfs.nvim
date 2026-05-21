@@ -309,6 +309,11 @@ do
         vim.cmd 'TSUpdate'
         return
       end
+
+      if name == 'markdown-preview.nvim' then
+        run_build(name, { 'npm', 'install' }, ev.data.path .. '/app')
+        return
+      end
     end,
   })
 end
