@@ -35,6 +35,19 @@ Uses [lazy.nvim](https://github.com/folke/lazy.nvim) as the plugin manager:
 - **File Explorer**: Neo-tree (optional kickstart module)
 - **AI Integration**: Claude Code plugin (`:Claude`, `<leader>cc`) and Gemini plugin (`<leader>g`)
 
+### Plugin Branch Notes (Neovim 0.12+)
+These branches are required for Neovim 0.12 compatibility — do not change without testing:
+- **nvim-treesitter**: `main` branch (v2 rewrite) — the old `master` branch is archived and incompatible with 0.12
+- **telescope.nvim**: `master` branch — the `0.1.x` branch uses old nvim-treesitter APIs (`ft_to_lang`) removed in 0.12
+
+### Fixing Plugin Compatibility After a kickstart.nvim Merge
+If plugins break after merging upstream kickstart changes on Neovim 0.12:
+1. Check the error traceback for the plugin and the API being called
+2. Check if the plugin has a newer branch that uses native `vim.treesitter.*` APIs
+3. Manually `git checkout` the correct branch in `~/.local/share/nvim/lazy/<plugin>/`
+4. Update `~/.config/nvim/lazy-lock.json` to reflect the new branch and commit
+5. For nvim-treesitter specifically: run `:TSUpdate` after switching to rebuild parsers
+
 ## Common Development Tasks
 
 ### Plugin Management
@@ -107,6 +120,7 @@ return {
 - **fd**: Fast file finder
 - **unzip**: Archive extraction
 - **Nerd Font**: For icons (optional, controlled by `vim.g.have_nerd_font`)
+- **tree-sitter-cli**: Required by nvim-treesitter v2 (main branch) to compile parsers — install via `npm install -g tree-sitter-cli` (NOTE: `brew install tree-sitter` only installs the C library, not the CLI)
 
 ### Language-specific
 - **Node.js/npm**: For TypeScript/JavaScript development
