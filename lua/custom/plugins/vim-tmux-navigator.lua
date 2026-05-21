@@ -1,4 +1,1 @@
-return {
-  'christoomey/vim-tmux-navigator',
-  lazy = false,
-}
+vim.pack.add { 'https://github.com/christoomey/vim-tmux-navigator' }
