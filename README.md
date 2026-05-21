@@ -1,6 +1,46 @@
 # kickstart.nvim
 
-This is my fork of Kickstart.nvim and I `main`ly use the `main` branch to keep master clean for upstream changes.
+This is my fork of Kickstart.nvim. The `master` branch tracks upstream; personal customizations live on `main`.
+
+## Fork Customizations
+
+### Plugin Manager: vim.pack
+
+This fork uses Neovim's built-in `vim.pack` plugin manager (Neovim 0.12+) instead of lazy.nvim. Plugins are declared with `vim.pack.add { 'https://github.com/...' }` directly in each plugin file under `lua/custom/plugins/`.
+
+To update plugins: `:lua vim.pack.update()` (`:write` applies, `:quit` cancels).
+
+### Machine Profile System
+
+Work-only plugins (Copilot, Gemini) are gated behind a machine profile. Create a `local.lua` file at `~/.config/nvim/local.lua` (gitignored) on any machine where work plugins should load:
+
+```lua
+vim.g.machine_profile = 'work'
+```
+
+The default profile is `'personal'`. Plugin files that should only load on work machines start with:
+
+```lua
+if vim.g.machine_profile ~= 'work' then return end
+```
+
+### Custom Plugins
+
+All personal plugins live in `lua/custom/plugins/`. Each file is auto-loaded at startup. Notable additions beyond kickstart defaults:
+
+- **gruvbox-material** — color scheme (custom fork `cfs-gruvbox-material`)
+- **lualine** — statusline with gruvbox-material theme
+- **neo-tree** — file explorer
+- **obsidian.nvim** — Obsidian vault integration
+- **telekasten.nvim** — Zettelkasten note-taking
+- **render-markdown.nvim** — inline markdown rendering
+- **markdown-preview.nvim** — browser preview via `open` (macOS)
+- **vim-tmux-navigator** — seamless pane navigation between Neovim and tmux
+- **git-blame.nvim** — inline git blame
+- **fine-cmdline** — improved command-line UI
+- **claude.nvim** — Claude Code integration (`<leader>cc`)
+- **copilot** *(work profile only)* — GitHub Copilot
+- **gemini-nvim** *(work profile only)* — Gemini AI integration
 
 ## Introduction
 
