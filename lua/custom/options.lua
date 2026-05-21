@@ -19,13 +19,15 @@ vim.wo.signcolumn = 'yes'
 vim.wo.wrap = false
 
 -- buffer-local options
-vim.bo.autoindent = true
-vim.bo.expandtab = true
-vim.bo.fileencoding = 'utf-8'
-vim.bo.smartindent = true
-vim.bo.softtabstop = 2
-vim.bo.swapfile = false
-vim.bo.syntax = 'ON'
+vim.o.autoindent = true
+vim.o.smartindent = false
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
+
+-- other settings
+vim.o.swapfile = false
 
 -- global options
 vim.g.backup = true
@@ -40,3 +42,15 @@ vim.g.showtabline = 2
 vim.g.sidescrolloff = 5
 vim.g.undodir = '~/.vim/undodir'
 vim.g.writebackup = false
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'lua',
+  callback = function()
+    vim.bo.tabstop = 2
+    vim.bo.shiftwidth = 2
+    vim.bo.softtabstop = 2
+    vim.bo.expandtab = true
+    vim.bo.smartindent = false
+  end,
+})
+

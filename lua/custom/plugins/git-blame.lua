@@ -1,8 +1,5 @@
-return {
-  'f-person/git-blame.nvim',
-  config = function()
-    require('gitblame').setup {
-      enabled = false,
-    }
-  end,
+vim.pack.add { 'https://github.com/f-person/git-blame.nvim' }
+
+require('gitblame').setup {
+  enabled = false,
 }
