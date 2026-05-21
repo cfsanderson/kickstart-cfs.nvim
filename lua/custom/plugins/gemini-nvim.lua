@@ -1,3 +1,5 @@
+if vim.g.machine_profile ~= 'work' then return end
+
 vim.pack.add { 'https://github.com/JunYang-tes/gemini-nvim' }
 
 require('gemini-nvim').setup {

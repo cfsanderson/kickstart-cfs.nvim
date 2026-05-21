@@ -5,6 +5,13 @@
 require('custom.options')
 require('custom.keymaps')
 
+-- Load machine-local config if present (gitignored).
+-- Create ~/.config/nvim/local.lua on each machine to set vim.g.machine_profile.
+-- Example contents:  vim.g.machine_profile = 'work'
+-- Defaults to 'personal' if the file doesn't exist.
+vim.g.machine_profile = 'personal'
+pcall(dofile, vim.fn.stdpath 'config' .. '/local.lua')
+
 -- Iterate over all Lua files in the plugins directory and load them
 local plugins_dir = vim.fs.joinpath(vim.fn.stdpath 'config', 'lua', 'custom', 'plugins')
 for file_name, type in vim.fs.dir(plugins_dir) do

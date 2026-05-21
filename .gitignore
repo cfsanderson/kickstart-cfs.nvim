@@ -12,5 +12,6 @@ spell/
 nvim-pack-lock.json
 lazy-lock.json
 pack/
+local.lua
 
 .DS_Store
