@@ -5,4 +5,6 @@ vim.pack.add { 'https://github.com/MeanderingProgrammer/render-markdown.nvim' }
 
 require('render-markdown').setup {
   file_types = { 'markdown', 'vimwiki' },
+  latex = { enabled = false },
+  yaml = { enabled = false },
 }
