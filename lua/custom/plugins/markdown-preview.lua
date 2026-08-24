@@ -7,8 +7,8 @@ return {
     vim.fn['mkdp#util#install']()
   end,
   init = function()
-    -- Set Zen browser as the default browser for markdown preview
-    vim.g.mkdp_browser = '/usr/bin/zen-browser'
+    -- Set Brave as the default browser for markdown preview
+    vim.g.mkdp_browser = '/usr/bin/brave-browser'
 
     -- Auto-start when opening markdown file
     vim.g.mkdp_auto_start = 0
