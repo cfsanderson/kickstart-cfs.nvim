@@ -21,18 +21,26 @@ The configuration emphasizes learning and understanding over convenience, with e
 - **after/ftplugin/**: Filetype-specific configurations
 
 ### Plugin Management
-Uses [lazy.nvim](https://github.com/folke/lazy.nvim) as the plugin manager:
-- Plugins are defined in the main `require('lazy').setup()` call in init.lua
-- Custom plugins are automatically loaded from `lua/custom/plugins/`
-- Each plugin file should return a table with plugin specification
+Uses Neovim's built-in `vim.pack` (see `:help vim.pack`), not lazy.nvim:
+- Core plugins are added via `vim.pack.add{...}` calls directly in init.lua
+- Custom plugins live in `lua/custom/plugins/*.lua` - each file calls
+  `vim.pack.add{...}` itself and does its own setup/keymaps immediately
+  after (no `return {spec}` table, no lazy-loading)
+- `lua/custom/plugins/init.lua` loads `custom.options`/`custom.keymaps`,
+  then requires every other file in that directory
+- Installed plugins live under `~/.local/share/nvim/site/pack/core/opt/`
+  (outside this config dir entirely, so nothing to gitignore for it);
+  `nvim-pack-lock.json` pins exact commits and IS tracked in this fork
+  (see its own comment)
 
 ### Key Components
 - **LSP**: Configured via nvim-lspconfig with Mason for automatic installation
 - **Completion**: blink.cmp with LuaSnip for snippets
 - **Fuzzy Finding**: Telescope with fzf-native integration
 - **Treesitter**: Syntax highlighting and parsing
-- **Git Integration**: Gitsigns for git status in editor
+- **Git Integration**: Gitsigns for git status in editor; lazygit.nvim (`<leader>lg`) for a full git TUI
 - **File Explorer**: Neo-tree (optional kickstart module)
+- **Buffer Line**: bufferline.nvim shows open buffers as tabs across the top (`<S-h>`/`<S-l>` to cycle, `<leader>bp` to pick, `<leader>bc` to close)
 - **AI Integration**: Claude Code plugin (`:Claude`, `<leader>cc`) and Gemini plugin (`<leader>g`)
 
 ### Plugin Branch Notes (Neovim 0.12+)
@@ -43,17 +51,19 @@ These branches are required for Neovim 0.12 compatibility — do not change with
 ### Fixing Plugin Compatibility After a kickstart.nvim Merge
 If plugins break after merging upstream kickstart changes on Neovim 0.12:
 1. Check the error traceback for the plugin and the API being called
-2. Check if the plugin has a newer branch that uses native `vim.treesitter.*` APIs
-3. Manually `git checkout` the correct branch in `~/.local/share/nvim/lazy/<plugin>/`
-4. Update `~/.config/nvim/lazy-lock.json` to reflect the new branch and commit
+2. Check if the plugin has a newer branch/version that uses native `vim.treesitter.*` APIs
+3. Manually `git checkout` the correct branch in `~/.local/share/nvim/site/pack/core/opt/<plugin>/`,
+   or repin via the `version =` field of that plugin's `vim.pack.add{...}` spec
+4. Run `:lua vim.pack.update()` (or delete `nvim-pack-lock.json` and reopen nvim)
+   so the lockfile reflects the change, then commit it
 5. For nvim-treesitter specifically: run `:TSUpdate` after switching to rebuild parsers
 
 ## Common Development Tasks
 
 ### Plugin Management
-- **View installed plugins**: `:Lazy`
-- **Update plugins**: `:Lazy update`
-- **Install new plugin**: Add to lazy.setup() or create file in `lua/custom/plugins/`
+- **View installed plugins**: `:lua vim.print(vim.pack.get())`
+- **Update plugins**: `:lua vim.pack.update()` (or a specific plugin: `vim.pack.update({'name'})`)
+- **Install new plugin**: create a file in `lua/custom/plugins/` that calls `vim.pack.add{...}`
 
 ### LSP Operations
 - **View LSP status**: `:LspInfo`
@@ -66,7 +76,7 @@ If plugins break after merging upstream kickstart changes on Neovim 0.12:
 - **View options**: `:help options`
 
 ### Debugging Configuration
-- **View loaded plugins**: `:Lazy`
+- **View loaded plugins**: `:lua vim.print(vim.pack.get())`
 - **Check LSP attachment**: `:LspInfo`
 - **View treesitter info**: `:TSInstallInfo`
 - **Inspect element**: `<leader>ti` (inspect under cursor)
