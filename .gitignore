@@ -14,3 +14,7 @@ spell/
 local.lua
 
 .DS_Store
+
+# Claude Code local state (per-machine permissions, etc.) — not shared
+# across machines via this repo.
+.claude/
