@@ -3,6 +3,7 @@ if vim.g.machine_profile ~= 'work' then return end
 vim.pack.add { 'https://github.com/zbirenbaum/copilot.lua' }
 
 require('copilot').setup {
+  copilot_node_command = vim.g.copilot_node_command or 'node',
   suggestion = {
     enabled = true,
     auto_trigger = true,
