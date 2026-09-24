@@ -29,19 +29,20 @@ vim.o.expandtab = true
 -- other settings
 vim.o.swapfile = false
 
--- global options
-vim.g.backup = true
-vim.g.belloff = 'all'
-vim.g.cmdheight = 2
-vim.g.compatible = false
-vim.g.errorbells = false
-vim.g.guifont = 'monospace:h17'
-vim.g.incsearch = true
-vim.g.pumheight = 10
-vim.g.showtabline = 2
-vim.g.sidescrolloff = 5
-vim.g.undodir = '~/.vim/undodir'
-vim.g.writebackup = false
+-- global options (previously vim.g.* by mistake - vim.g is for global
+-- *variables*, not editor options, so these were silent no-ops)
+vim.o.backup = true
+vim.o.belloff = 'all'
+vim.o.cmdheight = 2
+vim.o.compatible = false
+vim.o.errorbells = false
+vim.o.guifont = 'monospace:h17'
+vim.o.incsearch = true
+vim.o.pumheight = 10
+vim.o.showtabline = 2
+vim.o.sidescrolloff = 5
+vim.o.undodir = '~/.vim/undodir'
+vim.o.writebackup = false
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'lua',

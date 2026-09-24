@@ -9,7 +9,7 @@ require('obsidian').setup {
   workspaces = {
     {
       name = 'second-brain',
-      path = '/Users/caleb/Projects/second-brain',
+      path = vim.fn.expand '~/Projects/second-brain',
     },
   },
   mapping = {

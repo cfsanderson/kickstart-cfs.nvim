@@ -2,17 +2,15 @@
 tags
 test.sh
 .luarc.json
-nvim
 
 spell/
 
-# In your personal fork, you likely want to comment this, since it's recommended to track
-# nvim-pack-lock.json in version control - see :help vim.pack-lockfile
-# For the official `nvim-lua/kickstart.nvim` git repository, we leave it ignored to avoid unneeded
-# merge conflicts.
-nvim-pack-lock.json
-lazy-lock.json
-pack/
+# Personal fork: track nvim-pack-lock.json in version control (see
+# :help vim.pack-lockfile) rather than ignoring it, per upstream's own
+# recommendation for forks (only the official kickstart.nvim repo
+# ignores it, to avoid template-merge conflicts).
+# (vim.pack installs plugins under ~/.local/share/nvim/site/pack/, not
+# inside this config dir, so there's no local pack/ to ignore here.)
 local.lua
 
 .DS_Store
