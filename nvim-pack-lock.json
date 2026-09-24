@@ -22,6 +22,10 @@
       "rev": "016802de402556da54c36bd7359b441266b01cdd",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "copilot.lua": {
+      "rev": "407349117f176789df6ec1c23bca72f34e15b4e8",
+      "src": "git@github.com:zbirenbaum/copilot.lua"
+    },
     "fidget.nvim": {
       "rev": "9e0201673e08e997e7cf52afca5565c70bd117f3",
       "src": "https://github.com/j-hui/fidget.nvim"
@@ -29,6 +33,10 @@
     "fine-cmdline.nvim": {
       "rev": "6e646f4da6afe856e36f3d952489b723d1475638",
       "src": "https://github.com/VonHeikemen/fine-cmdline.nvim"
+    },
+    "gemini-nvim": {
+      "rev": "08194bd65df1323e7812eb2a82012ac1a6be1ebe",
+      "src": "git@github.com:JunYang-tes/gemini-nvim"
     },
     "git-blame.nvim": {
       "rev": "5c536e2d4134d064aa3f41575280bc8a2a0e03d7",
