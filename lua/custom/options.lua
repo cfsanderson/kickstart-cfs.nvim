@@ -41,7 +41,9 @@ vim.o.incsearch = true
 vim.o.pumheight = 10
 vim.o.showtabline = 2
 vim.o.sidescrolloff = 5
-vim.o.undodir = '~/.vim/undodir'
+local undodir = vim.fs.joinpath(vim.fn.stdpath 'state', 'undo')
+vim.fn.mkdir(undodir, 'p')
+vim.o.undodir = undodir
 vim.o.writebackup = false
 
 vim.api.nvim_create_autocmd('FileType', {
