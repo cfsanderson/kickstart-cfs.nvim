@@ -1,6 +1,4 @@
 -- https://github.com/kdheepak/lazygit.nvim
--- <leader>g is already taken by Gemini's toggle (custom/plugins/gemini-nvim.lua),
--- so this lives under <leader>l instead rather than colliding under a 'g' prefix.
 vim.pack.add {
   'https://github.com/kdheepak/lazygit.nvim',
   'https://github.com/nvim-lua/plenary.nvim',

@@ -12,7 +12,7 @@ To update plugins: `:lua vim.pack.update()` (`:write` applies, `:quit` cancels).
 
 ### Machine Profile System
 
-Work-only plugins (Copilot, Gemini) are gated behind a machine profile. Create a `local.lua` file at `~/.config/nvim/local.lua` (gitignored) on any machine where work plugins should load:
+Work-only plugins (Copilot) are gated behind a machine profile. Create a `local.lua` file at `~/.config/nvim/local.lua` (gitignored) on any machine where work plugins should load:
 
 ```lua
 vim.g.machine_profile = 'work'
@@ -40,7 +40,6 @@ All personal plugins live in `lua/custom/plugins/`. Each file is auto-loaded at 
 - **fine-cmdline** — improved command-line UI
 - **claude.nvim** — Claude Code integration (`<leader>cc`)
 - **copilot** *(work profile only)* — GitHub Copilot
-- **gemini-nvim** *(work profile only)* — Gemini AI integration
 
 ## Introduction
 

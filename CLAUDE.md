@@ -41,7 +41,7 @@ Uses Neovim's built-in `vim.pack` (see `:help vim.pack`), not lazy.nvim:
 - **Git Integration**: Gitsigns for git status in editor; lazygit.nvim (`<leader>lg`) for a full git TUI
 - **File Explorer**: Neo-tree (optional kickstart module)
 - **Buffer Line**: bufferline.nvim shows open buffers as tabs across the top (`<S-h>`/`<S-l>` to cycle, `<leader>bp` to pick, `<leader>bc` to close)
-- **AI Integration**: Claude Code plugin (`:Claude`, `<leader>cc`) and Gemini plugin (`<leader>g`)
+- **AI Integration**: Claude Code plugin (`:Claude`, `<leader>cc`)
 
 ### Plugin Branch Notes (Neovim 0.12+)
 These branches are required for Neovim 0.12 compatibility — do not change without testing:
@@ -86,7 +86,6 @@ If plugins break after merging upstream kickstart changes on Neovim 0.12:
 - **Copy file for Claude**: `:ClaudeFile` or `<leader>cf`
 - **Copy file with line numbers**: `:ClaudeDebug` or `<leader>cd`
 - **Copy selection for Claude**: `<leader>cs` (visual mode)
-- **Toggle Gemini chat**: `<leader>g`
 
 ## Customization Patterns
 
