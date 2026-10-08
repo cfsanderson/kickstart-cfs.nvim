@@ -28,10 +28,17 @@ vim.o.expandtab = true
 
 -- other settings
 vim.o.swapfile = false
+-- mouse off (overrides kickstart's 'a' in init.lua): with trackpad
+-- tap-to-click, palm brushes while typing were moving the cursor/splits
+vim.o.mouse = ''
 
 -- global options (previously vim.g.* by mistake - vim.g is for global
 -- *variables*, not editor options, so these were silent no-ops)
 vim.o.backup = true
+-- keep backups out of the edited file's dir (default backupdir starts with '.',
+-- which drops a `file~` next to every file you save)
+vim.o.backupdir = vim.fn.stdpath 'state' .. '/backup//'
+vim.fn.mkdir(vim.fn.stdpath 'state' .. '/backup', 'p')
 vim.o.belloff = 'all'
 vim.o.cmdheight = 2
 vim.o.compatible = false
@@ -41,7 +48,9 @@ vim.o.incsearch = true
 vim.o.pumheight = 10
 vim.o.showtabline = 2
 vim.o.sidescrolloff = 5
-vim.o.undodir = '~/.vim/undodir'
+-- vim.o doesn't expand '~', so a literal '~/.vim/undodir' created a './~'
+-- dir in the cwd; use nvim's own state dir instead
+vim.o.undodir = vim.fn.stdpath 'state' .. '/undo//'
 vim.o.writebackup = false
 
 vim.api.nvim_create_autocmd('FileType', {
